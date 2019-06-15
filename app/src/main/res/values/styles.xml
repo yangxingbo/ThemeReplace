@@ -1,0 +1,15 @@
+<resources>
+
+    <!-- Base application theme. 白天主题-->
+    <style name="AppTheme" parent="BaseAPPThemeLight" />
+
+    <!--夜间主题引用-->
+    <style name="AppThemeNight" parent="BaseAPPThemeNight" />
+
+    <style name="Custom" parent="android:Theme.DeviceDefault.Dialog">
+        <item name="DialogTitleAppearance">@android:style/TextAppearance.Medium</item>
+        <item name="DialogTitleText">数据加载中...</item>
+        <item name="DialogSpotColor">@android:color/white</item><!--小点颜色-->
+        <item name="DialogSpotCount">4</item><!--加载的点数-->
+    </style>
+</resources>

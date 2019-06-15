@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/dimen_5_dp"
+    android:layout_marginRight="@dimen/dimen_5_dp"
+    android:layout_marginTop="@dimen/dimen_5_dp"
+    android:theme="?attr/contextBg"
+    app:cardCornerRadius="@dimen/dimen_5_dp"
+    app:cardElevation="@dimen/dimen_5_dp">
+
+    <RelativeLayout
+        android:id="@+id/rl_fruitGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/home_item_selector">
+
+        <ImageView
+            android:id="@+id/iv_img"
+            android:layout_width="@dimen/dimen_150_dp"
+            android:layout_height="@dimen/dimen_100_dp"
+            android:scaleType="centerCrop"
+            android:transitionName="@string/transitionName"
+            android:src="@mipmap/apple" />
+
+        <TextView
+            android:id="@+id/tv_fruit_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimen_10_dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@+id/iv_img"
+            android:text="苹果"
+            android:textColor="?attr/txtColor"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tv_fruit_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_fruit_name"
+            android:layout_marginLeft="@dimen/dimen_3_dp"
+            android:layout_toRightOf="@+id/iv_img"
+            android:ellipsize="end"
+            android:maxLines="4"
+            android:padding="@dimen/dimen_2_dp"
+            android:text="苹果,是一种酸甜的水果,这是一种可口的水果,是大众的喜爱之一,苹果有红色苹果,青色苹果,色泽不一样,如口酸甜不一...."
+            android:textColor="?attr/homeItemTxtDesc" />
+    </RelativeLayout>
+</android.support.v7.widget.CardView>

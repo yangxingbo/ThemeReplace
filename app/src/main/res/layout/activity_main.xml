@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/contextBg"
+    android:orientation="vertical">
+
+    <include layout="@layout/layout_top" />
+
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/drawerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?attr/contextBg">
+
+        <RelativeLayout
+            android:id="@+id/rl_fragment"
+            android:background="?attr/contextBg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <include
+            android:id="@+id/rl_menu"
+            layout="@layout/layout_menu" />
+
+    </android.support.v4.widget.DrawerLayout>
+
+</LinearLayout>

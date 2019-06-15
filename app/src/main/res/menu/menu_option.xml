@@ -1,0 +1,25 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <item
+        android:id="@+id/menu_1"
+        android:icon="@mipmap/ic_menu_more_overflow"
+        android:title="扫一扫"
+        app:showAsAction="collapseActionView" />
+
+    <item
+        android:id="@+id/menu_2"
+        android:title="看一看"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_3"
+        android:title="搜一搜"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_4"
+        android:title="听一听"
+        app:showAsAction="never" />
+
+</menu>
