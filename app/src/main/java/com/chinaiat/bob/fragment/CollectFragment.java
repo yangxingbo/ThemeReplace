@@ -1,21 +1,24 @@
 package com.chinaiat.bob.fragment;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
 import com.chinaiat.bob.R;
 import com.chinaiat.bob.adapter.CollectDataAdapter;
-import com.chinaiat.bob.base.BaseFragment;
 import com.chinaiat.bob.bean.FruitInfo;
 import com.chinaiat.bob.db.DatabaseManager;
+import com.chinaiat.themelib.base.BaseFragment;
 
-import java.util.List;
+import java.util.ArrayList;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import dmax.dialog.SpotsDialog;
 
 /**
@@ -33,8 +36,8 @@ public class CollectFragment extends BaseFragment implements SwipeRefreshLayout.
     private SpotsDialog spotsDialog;
 
     private CollectDataAdapter collectDataAdapter;
-    private List<FruitInfo> allCollectFruitInfo;
-    Handler handler = new Handler() {
+    private ArrayList<FruitInfo> allCollectFruitInfo;
+    @SuppressLint("HandlerLeak") Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             collectDataAdapter.setData(allCollectFruitInfo);
@@ -49,6 +52,10 @@ public class CollectFragment extends BaseFragment implements SwipeRefreshLayout.
         return R.layout.fragment_collect;
     }
 
+    @Override
+    protected void bindButterKnife(BaseFragment baseFragment, View rootView) {
+        ButterKnife.bind(baseFragment,rootView);
+    }
 
     @Override
     protected void initData() {
@@ -56,13 +63,29 @@ public class CollectFragment extends BaseFragment implements SwipeRefreshLayout.
         refreshLayout.setColorSchemeResources(R.color.holo_blue_bright, R.color.holo_green_light, R.color.holo_orange_light, R.color.holo_red_light);
         refreshLayout.setOnRefreshListener(this);
         //设置布局方式,瀑布流2列，垂直
-//        recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(linearLayoutManager);
-        allCollectFruitInfo = DatabaseManager.getInstance().getAllCollectFruitInfo();
+        ArrayList<FruitInfo> infoList = (ArrayList<FruitInfo>) getActivity().getIntent().getSerializableExtra("collectFragmentData");
+        if (null != infoList && infoList.size() > 0) {
+            allCollectFruitInfo = infoList;
+        } else {
+            allCollectFruitInfo = (ArrayList<FruitInfo>) DatabaseManager.getInstance().getAllCollectFruitInfo();
+        }
         collectDataAdapter = new CollectDataAdapter(getActivity(), allCollectFruitInfo);
         recyclerView.setAdapter(collectDataAdapter);
+    }
+
+    @Override
+    public void onHiddenChanged(boolean hidden) {
+        super.onHiddenChanged(hidden);
+        if (!hidden) {
+            refreshData();
+        }
+    }
+
+    public ArrayList<FruitInfo> getAllCollectFruitInfo() {
+        return allCollectFruitInfo;
     }
 
     @Override
@@ -73,10 +96,14 @@ public class CollectFragment extends BaseFragment implements SwipeRefreshLayout.
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                allCollectFruitInfo = DatabaseManager.getInstance().getAllCollectFruitInfo();
-                handler.sendEmptyMessage(0);
+                refreshData();
             }
-        }, 2000);
+        }, 1000);
+    }
+
+    private void refreshData() {
+        allCollectFruitInfo = (ArrayList<FruitInfo>) DatabaseManager.getInstance().getAllCollectFruitInfo();
+        handler.sendEmptyMessage(0);
     }
 
     @Override

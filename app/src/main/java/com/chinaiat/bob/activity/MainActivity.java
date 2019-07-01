@@ -9,19 +9,24 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 
 import com.chinaiat.bob.R;
-import com.chinaiat.bob.base.BaseActivity;
+import com.chinaiat.bob.bean.FruitInfo;
 import com.chinaiat.bob.fragment.CollectFragment;
 import com.chinaiat.bob.fragment.ExploreFragment;
 import com.chinaiat.bob.fragment.HomeFragment;
+import com.chinaiat.themelib.base.BaseActivity;
+import com.chinaiat.themelib.domain.EventMsg;
+
+import java.util.ArrayList;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
@@ -56,6 +61,11 @@ public class MainActivity extends BaseActivity {
         initToolBar();
         homeFragment = new HomeFragment();
         jumpFragment(homeFragment, "home");
+    }
+
+    @Override
+    protected void bindButterKnife(BaseActivity baseActivity) {
+        ButterKnife.bind(baseActivity);
     }
 
     private void initToolBar() {
@@ -169,10 +179,57 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 100 && resultCode == 101) {
-            restartActivity();
-        } else if (requestCode == 102 && resultCode == 103) {
+        if (requestCode == 102 && resultCode == 103) {
             collectFragment.onActivityResult(requestCode, resultCode, data);
+        }else if(requestCode == 104 && resultCode == 105){
+            homeFragment.onActivityResult(requestCode, resultCode, data);
+        }
+    }
+
+    @Override
+    public void onStyleChange(EventMsg eventMsg) {
+        if (null != eventMsg) {
+            String action = eventMsg.getAction();
+            Intent intent = getIntent();
+            //主题发生改变
+            if (!TextUtils.isEmpty(action) && CHANGE_THEME.equals(action)) {
+                ArrayList<FruitInfo> fruitInfoList = homeFragment.getFruitInfoList();
+                if (null != fruitInfoList && fruitInfoList.size() != 0) {
+                    intent.putExtra("homeFragmentData", fruitInfoList);
+                }
+                if (null != collectFragment) {
+                    ArrayList<FruitInfo> allCollectFruitInfo = collectFragment.getAllCollectFruitInfo();
+                    if (null != allCollectFruitInfo && allCollectFruitInfo.size() != 0) {
+                        intent.putExtra("collectFragmentData", allCollectFruitInfo);
+                    }
+                }
+                //字体发生改变
+            } else if (!TextUtils.isEmpty(action) && CHANGE_TYPEFACE.equals(action)) {
+                ArrayList<FruitInfo> fruitInfoList = homeFragment.getFruitInfoList();
+                if (null != fruitInfoList && fruitInfoList.size() != 0) {
+                    intent.putExtra("homeFragmentData", fruitInfoList);
+                }
+                if (null != collectFragment) {
+                    ArrayList<FruitInfo> allCollectFruitInfo = collectFragment.getAllCollectFruitInfo();
+                    if (null != allCollectFruitInfo && allCollectFruitInfo.size() != 0) {
+                        intent.putExtra("collectFragmentData", allCollectFruitInfo);
+                    }
+                }
+                //字体大小发生改变
+            } else if (!TextUtils.isEmpty(action) && CHANGE_TYPEFACE_SIZE.equals(action)) {
+//                intent.putExtra("homeFragmentData",);
+                ArrayList<FruitInfo> fruitInfoList = homeFragment.getFruitInfoList();
+                if (null != fruitInfoList && fruitInfoList.size() != 0) {
+                    intent.putExtra("homeFragmentData", fruitInfoList);
+                }
+                if (null != collectFragment) {
+                    ArrayList<FruitInfo> allCollectFruitInfo = collectFragment.getAllCollectFruitInfo();
+                    if (null != allCollectFruitInfo && allCollectFruitInfo.size() != 0) {
+                        intent.putExtra("collectFragmentData", allCollectFruitInfo);
+                    }
+                }
+            }
+            restartActivity(intent);
         }
     }
 }

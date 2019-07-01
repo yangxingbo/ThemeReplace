@@ -1,7 +1,11 @@
 package com.chinaiat.bob.fragment;
 
+import android.view.View;
+
 import com.chinaiat.bob.R;
-import com.chinaiat.bob.base.BaseFragment;
+import com.chinaiat.themelib.base.BaseFragment;
+
+import butterknife.ButterKnife;
 
 /**
  * @author: Bob
@@ -12,5 +16,10 @@ public class ExploreFragment extends BaseFragment {
     @Override
     protected int getLayoutId() {
         return R.layout.fragment_explore;
+    }
+
+    @Override
+    protected void bindButterKnife(BaseFragment baseFragment, View rootView) {
+        ButterKnife.bind(baseFragment,rootView);
     }
 }

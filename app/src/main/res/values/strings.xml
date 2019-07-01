@@ -4,6 +4,7 @@
     <string name="home">首页</string>
     <string name="explore">发现</string>
     <string name="collect">收藏</string>
+    <string name="ok">确定</string>
     <string name="welcome">欢迎使用</string>
 
     <string name="transitionName">img</string>

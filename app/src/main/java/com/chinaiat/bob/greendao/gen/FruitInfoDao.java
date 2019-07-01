@@ -24,7 +24,7 @@ public class FruitInfoDao extends AbstractDao<FruitInfo, Long> {
      * Can be used for QueryBuilder and for referencing column names.
      */
     public static class Properties {
-        public final static Property Id = new Property(0, long.class, "id", true, "_id");
+        public final static Property Id = new Property(0, Long.class, "id", true, "_id");
         public final static Property FruitName = new Property(1, String.class, "fruitName", false, "FRUIT_NAME");
         public final static Property FruitDescription = new Property(2, String.class, "fruitDescription", false, "FRUIT_DESCRIPTION");
         public final static Property ImgResId = new Property(3, int.class, "imgResId", false, "IMG_RES_ID");
@@ -44,7 +44,7 @@ public class FruitInfoDao extends AbstractDao<FruitInfo, Long> {
     public static void createTable(Database db, boolean ifNotExists) {
         String constraint = ifNotExists? "IF NOT EXISTS ": "";
         db.execSQL("CREATE TABLE " + constraint + "\"FRUIT_INFO\" (" + //
-                "\"_id\" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL ," + // 0: id
+                "\"_id\" INTEGER PRIMARY KEY AUTOINCREMENT ," + // 0: id
                 "\"FRUIT_NAME\" TEXT," + // 1: fruitName
                 "\"FRUIT_DESCRIPTION\" TEXT," + // 2: fruitDescription
                 "\"IMG_RES_ID\" INTEGER NOT NULL ," + // 3: imgResId
@@ -60,7 +60,11 @@ public class FruitInfoDao extends AbstractDao<FruitInfo, Long> {
     @Override
     protected final void bindValues(DatabaseStatement stmt, FruitInfo entity) {
         stmt.clearBindings();
-        stmt.bindLong(1, entity.getId());
+ 
+        Long id = entity.getId();
+        if (id != null) {
+            stmt.bindLong(1, id);
+        }
  
         String fruitName = entity.getFruitName();
         if (fruitName != null) {
@@ -78,7 +82,11 @@ public class FruitInfoDao extends AbstractDao<FruitInfo, Long> {
     @Override
     protected final void bindValues(SQLiteStatement stmt, FruitInfo entity) {
         stmt.clearBindings();
-        stmt.bindLong(1, entity.getId());
+ 
+        Long id = entity.getId();
+        if (id != null) {
+            stmt.bindLong(1, id);
+        }
  
         String fruitName = entity.getFruitName();
         if (fruitName != null) {
@@ -95,13 +103,13 @@ public class FruitInfoDao extends AbstractDao<FruitInfo, Long> {
 
     @Override
     public Long readKey(Cursor cursor, int offset) {
-        return cursor.getLong(offset + 0);
+        return cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0);
     }    
 
     @Override
     public FruitInfo readEntity(Cursor cursor, int offset) {
         FruitInfo entity = new FruitInfo( //
-            cursor.getLong(offset + 0), // id
+            cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0), // id
             cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1), // fruitName
             cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2), // fruitDescription
             cursor.getInt(offset + 3), // imgResId
@@ -112,7 +120,7 @@ public class FruitInfoDao extends AbstractDao<FruitInfo, Long> {
      
     @Override
     public void readEntity(Cursor cursor, FruitInfo entity, int offset) {
-        entity.setId(cursor.getLong(offset + 0));
+        entity.setId(cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0));
         entity.setFruitName(cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1));
         entity.setFruitDescription(cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2));
         entity.setImgResId(cursor.getInt(offset + 3));
@@ -136,7 +144,7 @@ public class FruitInfoDao extends AbstractDao<FruitInfo, Long> {
 
     @Override
     public boolean hasKey(FruitInfo entity) {
-        throw new UnsupportedOperationException("Unsupported for entities with a non-null key");
+        return entity.getId() != null;
     }
 
     @Override

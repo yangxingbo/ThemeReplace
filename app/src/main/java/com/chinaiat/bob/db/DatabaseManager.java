@@ -30,6 +30,15 @@ public class DatabaseManager {
     }
 
     /**
+     * 添加水果信息集合
+     *
+     * @param fruitInfoList
+     */
+    public void saveFruitList(List<FruitInfo> fruitInfoList) {
+        fruitInfoDao.insertInTx(fruitInfoList);
+    }
+
+    /**
      * 添加水果信息
      *
      * @param fruitInfo

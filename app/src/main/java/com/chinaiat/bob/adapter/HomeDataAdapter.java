@@ -17,7 +17,6 @@ import com.bumptech.glide.Glide;
 import com.chinaiat.bob.R;
 import com.chinaiat.bob.activity.FruitDescriptionActivity;
 import com.chinaiat.bob.activity.MainActivity;
-import com.chinaiat.bob.activity.SettingActivity;
 import com.chinaiat.bob.bean.FruitInfo;
 
 import java.util.List;
@@ -49,7 +48,6 @@ public class HomeDataAdapter extends RecyclerView.Adapter<HomeDataAdapter.HomeHo
     @Override
     public void onBindViewHolder(@NonNull final HomeHolder holder, int position) {
         final FruitInfo fruitInfo = mFruitInfoList.get(position);
-//        setImgHeight(holder.iv_img);
         holder.tv_fruitName.setText(fruitInfo.getFruitName());
         holder.tv_fruitDesc.setText(fruitInfo.getFruitDescription());
         Glide.with(mContext).load(fruitInfo.getImgResId()).into(holder.iv_img);
@@ -58,27 +56,28 @@ public class HomeDataAdapter extends RecyclerView.Adapter<HomeDataAdapter.HomeHo
             public void onClick(View v) {
                 Intent intent = new Intent((MainActivity) mContext, FruitDescriptionActivity.class);
                 intent.putExtra("fruitInfo", fruitInfo);
+                intent.putExtra("isWho", "home");
                 ActivityOptionsCompat compat = ActivityOptionsCompat.makeSceneTransitionAnimation((MainActivity) mContext, holder.iv_img, mContext.getString(R.string.transitionName));
-                ActivityCompat.startActivity(mContext, intent, compat.toBundle());
+                ActivityCompat.startActivityForResult((MainActivity) mContext, intent, 104, compat.toBundle());
             }
         });
     }
-//
-//    /**
-//     * 设置ImageView不规则的高
-//     *
-//     * @param view
-//     */
-//    private void setImgHeight(View view) {
-//        ViewGroup.LayoutParams params = view.getLayoutParams();
-//        //设置图片的相对于屏幕的宽高比
-//        params.height = (int) (200 + Math.random() * 400);
-//        view.setLayoutParams(params);
-//    }
 
     @Override
     public int getItemCount() {
         return mFruitInfoList.size();
+    }
+
+    public void refreshData(FruitInfo fruitInfo) {
+        for (int i = 0; i < mFruitInfoList.size(); i++) {
+            if (fruitInfo.getId().equals(mFruitInfoList.get(i).getId())) {
+                if (!mFruitInfoList.get(i).isCollect() == fruitInfo.isCollect()) {
+                    mFruitInfoList.get(i).setCollect(fruitInfo.getIsCollect());
+                    notifyItemChanged(i);
+                }
+                break;
+            }
+        }
     }
 
     /**

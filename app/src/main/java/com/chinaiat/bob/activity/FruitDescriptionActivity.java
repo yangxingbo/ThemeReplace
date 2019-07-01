@@ -11,11 +11,12 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.chinaiat.bob.R;
-import com.chinaiat.bob.base.BaseActivity;
 import com.chinaiat.bob.bean.FruitInfo;
 import com.chinaiat.bob.db.DatabaseManager;
+import com.chinaiat.themelib.base.BaseActivity;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
 /**
  * @author: Bob
@@ -34,6 +35,7 @@ public class FruitDescriptionActivity extends BaseActivity {
 
     private boolean isCollect = false;
     private FruitInfo fruitInfo;
+    private String isWho;
 
     @Override
     public int getLayoutId() {
@@ -41,7 +43,13 @@ public class FruitDescriptionActivity extends BaseActivity {
     }
 
     @Override
+    protected void bindButterKnife(BaseActivity baseActivity) {
+        ButterKnife.bind(baseActivity);
+    }
+
+    @Override
     protected void initData() {
+        isWho = getIntent().getStringExtra("isWho");
         fruitInfo = (FruitInfo) getIntent().getSerializableExtra("fruitInfo");
         isCollect = fruitInfo.isCollect();
         toolbar.setTitle(fruitInfo.getFruitName() + "详情");
@@ -73,8 +81,12 @@ public class FruitDescriptionActivity extends BaseActivity {
     }
 
     private void setCancelResult() {
-        if (!fruitInfo.isCollect()) {
+        //CollectFragment中查看取消收藏
+        if (isWho.equals("collect") && !fruitInfo.isCollect()) {
             setResult(103, new Intent().putExtra("cancelCollect", fruitInfo));
+            //HomeFragment 中查看添加收藏
+        } else if (isWho.equals("home")) {
+            setResult(105, new Intent().putExtra("cancelCollect", fruitInfo));
         }
     }
 

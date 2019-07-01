@@ -48,7 +48,6 @@ public class CollectDataAdapter extends RecyclerView.Adapter<CollectDataAdapter.
     @Override
     public void onBindViewHolder(@NonNull final HomeHolder holder, int position) {
         final FruitInfo fruitInfo = mFruitInfoList.get(position);
-//        setImgHeight(holder.iv_img);
         holder.tv_fruitName.setText(fruitInfo.getFruitName());
         holder.tv_fruitDesc.setText(fruitInfo.getFruitDescription());
         Glide.with(mContext).load(fruitInfo.getImgResId()).into(holder.iv_img);
@@ -57,6 +56,7 @@ public class CollectDataAdapter extends RecyclerView.Adapter<CollectDataAdapter.
             public void onClick(View v) {
                 Intent intent = new Intent((MainActivity) mContext, FruitDescriptionActivity.class);
                 intent.putExtra("fruitInfo", fruitInfo);
+                intent.putExtra("isWho", "collect");
                 ActivityOptionsCompat compat = ActivityOptionsCompat.makeSceneTransitionAnimation((MainActivity) mContext, holder.iv_img, mContext.getString(R.string.transitionName));
                 ActivityCompat.startActivityForResult((MainActivity) mContext, intent, 102, compat.toBundle());
             }
@@ -65,26 +65,14 @@ public class CollectDataAdapter extends RecyclerView.Adapter<CollectDataAdapter.
 
     public void removeItem(FruitInfo info) {
         for (int i = 0; i < mFruitInfoList.size(); i++) {
-            if (mFruitInfoList.get(i).getId() == info.getId()) {
-                mFruitInfoList.remove(info);
+            if (mFruitInfoList.get(i).getId().equals(info.getId())) {
+                mFruitInfoList.remove(i);
                 notifyItemRemoved(i);
-                notifyItemRangeRemoved(0, mFruitInfoList.size());
+                notifyItemRangeChanged(0, mFruitInfoList.size());
                 break;
             }
         }
     }
-//
-//    /**
-//     * 设置ImageView不规则的高
-//     *
-//     * @param view
-//     */
-//    private void setImgHeight(View view) {
-//        ViewGroup.LayoutParams params = view.getLayoutParams();
-//        //设置图片的相对于屏幕的宽高比
-//        params.height = (int) (200 + Math.random() * 400);
-//        view.setLayoutParams(params);
-//    }
 
     @Override
     public int getItemCount() {

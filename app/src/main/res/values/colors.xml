@@ -1,26 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!--白天主题-->
-    <color name="colorPrimary">#298BCE</color><!--主题topBar颜色-->
-    <color name="colorPrimaryDark">@color/colorPrimary</color><!--状态栏颜色-->
-    <color name="contextWhite">#FFFFFF</color><!--界面背景色-->
-    <color name="txtBlackColor">#000000</color><!--字体黑色-->
-    <color name="menuGray">#ddd</color><!--字体灰色-->
-    <color name="homeItemTxtDesc">#AA1A1A1B</color><!--字体黑色-->
-    <color name="light_blue">#77298BCE</color><!--主题topBar颜色-->
-
-    <!--夜间主题-->
-    <color name="colorPrimaryNight">#1A1A1B</color>
-    <color name="colorPrimaryDarkNight">@color/colorPrimaryNight</color>
-    <color name="contextNight">@color/colorPrimaryNight</color><!--界面背景色-->
-    <color name="txtWhiteColor">#FFFFFF</color><!--字体黑色-->
-    <color name="menuNight">#AA1A1A1B</color><!--字体黑色-->
-    <color name="txtLight">#AAAAAA</color><!--字体黑色-->
-
-    <color name="holo_blue_bright">#ff00ddff</color>
-    <color name="holo_green_light">#ff99cc00</color>
-    <color name="holo_orange_light">#ffffbb33</color>
-    <color name="holo_red_light">#ffff4444</color>
 
 </resources>

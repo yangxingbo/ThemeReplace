@@ -1,10 +1,10 @@
 package com.chinaiat.bob;
 
-import android.app.Application;
-import android.database.sqlite.SQLiteDatabase;
+import android.content.Context;
 
 import com.chinaiat.bob.greendao.gen.DaoMaster;
 import com.chinaiat.bob.greendao.gen.DaoSession;
+import com.chinaiat.themelib.ThemeLibApplication;
 
 import org.greenrobot.greendao.database.Database;
 
@@ -12,9 +12,10 @@ import org.greenrobot.greendao.database.Database;
  * @author: Bob
  * @date: 2019/6/11
  */
-public class ThemeReplaceApplication extends Application {
+public class ThemeReplaceApplication extends ThemeLibApplication {
 
     private static DaoSession daoSession;
+    public static boolean IS_CHANGE_THEME = false;
 
     @Override
     public void onCreate() {

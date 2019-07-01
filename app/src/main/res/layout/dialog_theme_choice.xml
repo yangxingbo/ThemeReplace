@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RadioGroup
+        android:id="@+id/group1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="4dp"
+        android:orientation="horizontal">
+
+        <com.chinaiat.bob.View.ThemeChoiceRadioButton
+            android:id="@+id/rdobtn_1"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/rdo_btn_theme_transparent"
+            app:backgroundColor="@color/red500" />
+
+        <com.chinaiat.bob.View.ThemeChoiceRadioButton
+            android:id="@+id/rdobtn_2"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/rdo_btn_theme_transparent"
+            app:backgroundColor="@color/pink500" />
+
+        <com.chinaiat.bob.View.ThemeChoiceRadioButton
+            android:id="@+id/rdobtn_3"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/rdo_btn_theme_transparent"
+            app:backgroundColor="@color/purple500" />
+
+        <com.chinaiat.bob.View.ThemeChoiceRadioButton
+            android:id="@+id/rdobtn_4"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/rdo_btn_theme_transparent"
+            app:backgroundColor="@color/deeppurple500" />
+
+        <com.chinaiat.bob.View.ThemeChoiceRadioButton
+            android:id="@+id/rdobtn_5"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/rdo_btn_theme_transparent"
+            app:backgroundColor="@color/indigo500" />
+    </RadioGroup>
+
+    <RadioGroup
+        android:id="@+id/group2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
+        android:orientation="horizontal">
+
+        <com.chinaiat.bob.View.ThemeChoiceRadioButton
+            android:id="@+id/rdobtn_6"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/rdo_btn_theme_transparent"
+            app:backgroundColor="@color/blue500" />
+
+        <com.chinaiat.bob.View.ThemeChoiceRadioButton
+            android:id="@+id/rdobtn_7"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/rdo_btn_theme_transparent"
+            app:backgroundColor="@color/lightblue500" />
+
+        <com.chinaiat.bob.View.ThemeChoiceRadioButton
+            android:id="@+id/rdobtn_8"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/rdo_btn_theme_transparent"
+            app:backgroundColor="@color/cyan500" />
+
+        <com.chinaiat.bob.View.ThemeChoiceRadioButton
+            android:id="@+id/rdobtn_9"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/rdo_btn_theme_transparent"
+            app:backgroundColor="@color/teal500" />
+
+        <com.chinaiat.bob.View.ThemeChoiceRadioButton
+            android:id="@+id/rdobtn_10"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/rdo_btn_theme_transparent"
+            app:backgroundColor="@color/green500" />
+    </RadioGroup>
+
+    <RadioGroup
+        android:id="@+id/group3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
+        android:orientation="horizontal">
+
+        <com.chinaiat.bob.View.ThemeChoiceRadioButton
+            android:id="@+id/rdobtn_11"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/rdo_btn_theme_transparent"
+            app:backgroundColor="@color/lightgreen500" />
+
+        <com.chinaiat.bob.View.ThemeChoiceRadioButton
+            android:id="@+id/rdobtn_12"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/rdo_btn_theme_transparent"
+            app:backgroundColor="@color/lime500" />
+
+        <com.chinaiat.bob.View.ThemeChoiceRadioButton
+            android:id="@+id/rdobtn_13"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/rdo_btn_theme_transparent"
+            app:backgroundColor="@color/yellow500" />
+
+        <com.chinaiat.bob.View.ThemeChoiceRadioButton
+            android:id="@+id/rdobtn_14"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/rdo_btn_theme_transparent"
+            app:backgroundColor="@color/amber500" />
+
+        <com.chinaiat.bob.View.ThemeChoiceRadioButton
+            android:id="@+id/rdobtn_15"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/rdo_btn_theme_transparent"
+            app:backgroundColor="@color/orange500" />
+    </RadioGroup>
+
+    <RadioGroup
+        android:id="@+id/group4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="16dp"
+        android:orientation="horizontal">
+
+        <com.chinaiat.bob.View.ThemeChoiceRadioButton
+            android:id="@+id/rdobtn_16"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/rdo_btn_theme_transparent"
+            app:backgroundColor="@color/deeporange500" />
+
+        <com.chinaiat.bob.View.ThemeChoiceRadioButton
+            android:id="@+id/rdobtn_17"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/rdo_btn_theme_transparent"
+            app:backgroundColor="@color/brown500" />
+
+        <com.chinaiat.bob.View.ThemeChoiceRadioButton
+            android:id="@+id/rdobtn_18"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/rdo_btn_theme_transparent"
+            app:backgroundColor="@color/grey500" />
+
+        <com.chinaiat.bob.View.ThemeChoiceRadioButton
+            android:id="@+id/rdobtn_19"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/rdo_btn_theme_transparent"
+            app:backgroundColor="@color/bluegrey500" />
+
+        <com.chinaiat.bob.View.ThemeChoiceRadioButton
+            android:id="@+id/rdobtn_20"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/rdo_btn_theme_transparent"
+            app:backgroundColor="@color/colorPrimaryNight" />
+
+    </RadioGroup>
+</LinearLayout>

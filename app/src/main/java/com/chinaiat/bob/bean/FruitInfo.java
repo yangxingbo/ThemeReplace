@@ -4,6 +4,7 @@ import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Id;
 
 import java.io.Serializable;
+
 import org.greenrobot.greendao.annotation.Generated;
 
 /**
@@ -15,7 +16,7 @@ import org.greenrobot.greendao.annotation.Generated;
 public class FruitInfo implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id(autoincrement = true)
-    private long id;
+    private Long id;
     private String fruitName;
     private String fruitDescription;
     private int imgResId;
@@ -30,8 +31,8 @@ public class FruitInfo implements Serializable {
         this.imgResId = imgResId;
     }
 
-    @Generated(hash = 1924941257)
-    public FruitInfo(long id, String fruitName, String fruitDescription,
+    @Generated(hash = 1651672931)
+    public FruitInfo(Long id, String fruitName, String fruitDescription,
             int imgResId, boolean isCollect) {
         this.id = id;
         this.fruitName = fruitName;
@@ -40,11 +41,11 @@ public class FruitInfo implements Serializable {
         this.isCollect = isCollect;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
