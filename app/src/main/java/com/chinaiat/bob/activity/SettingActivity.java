@@ -11,14 +11,13 @@ import android.view.View;
 
 import com.chinaiat.bob.R;
 import com.chinaiat.bob.ThemeReplaceApplication;
-import com.chinaiat.bob.db.SPHelper;
+import com.chinaiat.themelib.activity.TextSizeChangeActivity;
+import com.chinaiat.themelib.activity.TypefaceChangeActivity;
 import com.chinaiat.themelib.base.BaseActivity;
 import com.chinaiat.themelib.domain.EventMsg;
+import com.chinaiat.themelib.helper.SPHelper;
 
 import org.greenrobot.eventbus.EventBus;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * @author: Bob
@@ -27,8 +26,6 @@ import butterknife.ButterKnife;
  */
 public class SettingActivity extends BaseActivity {
 
-    @BindView(R.id.toolBar)
-    Toolbar toolbar;
 
     @Override
     public int getLayoutId() {
@@ -37,6 +34,7 @@ public class SettingActivity extends BaseActivity {
 
     @Override
     protected void initData() {
+        Toolbar toolbar = findViewById(R.id.toolBar);
         toolbar.setTitle("设置");
         setSupportActionBar(toolbar);
         getSupportActionBar().setHomeButtonEnabled(true);
@@ -48,11 +46,6 @@ public class SettingActivity extends BaseActivity {
             }
         });
         getFragmentManager().beginTransaction().replace(R.id.frame_content, new SettingPreferenceFragment()).commit();
-    }
-
-    @Override
-    protected void bindButterKnife(BaseActivity baseActivity) {
-        ButterKnife.bind(baseActivity);
     }
 
     public static class SettingPreferenceFragment extends PreferenceFragment implements SharedPreferences.OnSharedPreferenceChangeListener, Preference.OnPreferenceClickListener {

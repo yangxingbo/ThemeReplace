@@ -22,6 +22,7 @@ import com.chinaiat.bob.fragment.ExploreFragment;
 import com.chinaiat.bob.fragment.HomeFragment;
 import com.chinaiat.themelib.base.BaseActivity;
 import com.chinaiat.themelib.domain.EventMsg;
+import com.chinaiat.themelib.utils.ToastUtil;
 
 import java.util.ArrayList;
 
@@ -55,17 +56,15 @@ public class MainActivity extends BaseActivity {
     public int getLayoutId() {
         return R.layout.activity_main;
     }
-
+    @Override
+    protected void bindButterKnife() {
+        ButterKnife.bind(this);
+    }
     @Override
     protected void initData() {
         initToolBar();
         homeFragment = new HomeFragment();
         jumpFragment(homeFragment, "home");
-    }
-
-    @Override
-    protected void bindButterKnife(BaseActivity baseActivity) {
-        ButterKnife.bind(baseActivity);
     }
 
     private void initToolBar() {
@@ -107,16 +106,16 @@ public class MainActivity extends BaseActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_1:
-                showToastShort("扫一扫");
+                ToastUtil.showShortToast("扫一扫");
                 break;
             case R.id.menu_2:
-                showToastShort("看一看");
+                ToastUtil.showShortToast("看一看");
                 break;
             case R.id.menu_3:
-                showToastShort("搜一搜");
+                ToastUtil.showShortToast("搜一搜");
                 break;
             case R.id.menu_4:
-                showToastShort("听一听");
+                ToastUtil.showShortToast("听一听");
                 break;
         }
         return super.onOptionsItemSelected(item);

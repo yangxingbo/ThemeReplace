@@ -5,7 +5,6 @@ import android.content.Context;
 
 import com.chinaiat.themelib.helper.SPHelper;
 import com.chinaiat.themelib.utils.FontUtil;
-import com.chinaiat.themereplace.R;
 
 
 /**

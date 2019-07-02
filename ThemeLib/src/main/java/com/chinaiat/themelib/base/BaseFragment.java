@@ -39,11 +39,11 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(getLayoutId(), container, false);
-        bindButterKnife(this,rootView);
+        bindButterKnife(rootView);
         return rootView;
     }
 
-    protected void bindButterKnife(BaseFragment baseFragment, View rootView) {
+    protected void bindButterKnife(View rootView) {
 
     }
 

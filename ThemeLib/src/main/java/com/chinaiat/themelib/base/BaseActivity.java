@@ -9,7 +9,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Toast;
 
 import com.chinaiat.themelib.ThemeLibApplication;
 import com.chinaiat.themelib.domain.EventMsg;
@@ -39,21 +38,20 @@ public abstract class BaseActivity extends AppCompatActivity {
      */
     protected String CHANGE_TYPEFACE_SIZE = "changeTypefaceSize";
 
-    /**
-     * 重启标记
-     */
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setTheme(ThemeLibApplication.mThemes[SPHelper.getTheme()]);
         setContentView(getLayoutId());
-        bindButterKnife(this);
+        bindButterKnife();
         EventBus.getDefault().register(this);
         initData();
     }
 
-    protected void bindButterKnife(BaseActivity baseActivity) {
+    /**
+     * 绑定ButterKnife
+     */
+    protected void bindButterKnife() {
 
     }
 
@@ -69,10 +67,6 @@ public abstract class BaseActivity extends AppCompatActivity {
      */
     protected void initData() {
 
-    }
-
-    protected void showToastShort(String message) {
-        Toast.makeText(BaseActivity.this, message, Toast.LENGTH_SHORT).show();
     }
 
     /**

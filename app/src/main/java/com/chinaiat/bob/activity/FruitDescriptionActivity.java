@@ -14,6 +14,7 @@ import com.chinaiat.bob.R;
 import com.chinaiat.bob.bean.FruitInfo;
 import com.chinaiat.bob.db.DatabaseManager;
 import com.chinaiat.themelib.base.BaseActivity;
+import com.chinaiat.themelib.utils.ToastUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -43,8 +44,8 @@ public class FruitDescriptionActivity extends BaseActivity {
     }
 
     @Override
-    protected void bindButterKnife(BaseActivity baseActivity) {
-        ButterKnife.bind(baseActivity);
+    protected void bindButterKnife() {
+        ButterKnife.bind(this);
     }
 
     @Override
@@ -96,11 +97,11 @@ public class FruitDescriptionActivity extends BaseActivity {
             if (isCollect) {
                 fruitInfo.setCollect(false);
                 item.setIcon(R.mipmap.collection_normal);
-                showToastShort("取消收藏");
+                ToastUtil.showShortToast("取消收藏");
             } else {
                 fruitInfo.setCollect(true);
                 item.setIcon(R.mipmap.collection_select);
-                showToastShort("收藏成功");
+                ToastUtil.showShortToast("收藏成功");
             }
             DatabaseManager.getInstance().saveFruit(fruitInfo);
             isCollect = !isCollect;

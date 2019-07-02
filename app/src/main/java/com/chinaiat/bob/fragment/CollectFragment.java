@@ -51,18 +51,15 @@ public class CollectFragment extends BaseFragment implements SwipeRefreshLayout.
     protected int getLayoutId() {
         return R.layout.fragment_collect;
     }
-
     @Override
-    protected void bindButterKnife(BaseFragment baseFragment, View rootView) {
-        ButterKnife.bind(baseFragment,rootView);
+    protected void bindButterKnife(View rootView) {
+        ButterKnife.bind(this,rootView);
     }
-
     @Override
     protected void initData() {
         spotsDialog = new SpotsDialog(getActivity(), R.style.Custom);
         refreshLayout.setColorSchemeResources(R.color.holo_blue_bright, R.color.holo_green_light, R.color.holo_orange_light, R.color.holo_red_light);
         refreshLayout.setOnRefreshListener(this);
-        //设置布局方式,瀑布流2列，垂直
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(linearLayoutManager);

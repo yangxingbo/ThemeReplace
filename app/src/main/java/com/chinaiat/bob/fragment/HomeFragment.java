@@ -55,8 +55,8 @@ public class HomeFragment extends BaseFragment implements SwipeRefreshLayout.OnR
     }
 
     @Override
-    protected void bindButterKnife(BaseFragment baseFragment, View rootView) {
-        ButterKnife.bind(baseFragment,rootView);
+    protected void bindButterKnife(View rootView) {
+        ButterKnife.bind(this,rootView);
     }
 
     @Override

@@ -14,7 +14,7 @@ import android.widget.RadioGroup;
 
 import com.chinaiat.bob.R;
 import com.chinaiat.bob.ThemeReplaceApplication;
-import com.chinaiat.bob.db.SPHelper;
+import com.chinaiat.themelib.helper.SPHelper;
 
 
 /**

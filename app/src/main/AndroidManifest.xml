@@ -25,10 +25,10 @@
             android:name=".activity.FruitDescriptionActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.TypefaceChangeActivity"
+            android:name="com.chinaiat.themelib.activity.TypefaceChangeActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.TextSizeChangeActivity"
+            android:name="com.chinaiat.themelib.activity.TextSizeChangeActivity"
             android:screenOrientation="portrait" />
     </application>
 
