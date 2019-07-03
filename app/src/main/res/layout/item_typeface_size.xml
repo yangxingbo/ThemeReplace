@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_chang_typeface_size"
+    android:layout_width="match_parent"
+    android:layout_height="48dp"
+    android:background="@drawable/menu_item_selector">
+
+    <TextView
+        android:id="@+id/tv_change_typeface_size"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginLeft="15dp"
+        android:gravity="center"
+        android:text="@string/change_typeface_size"
+        android:textColor="?attr/txtColor"
+        android:textSize="17sp" />
+
+</RelativeLayout>

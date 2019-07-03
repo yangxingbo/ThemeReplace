@@ -1,15 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?attr/contextBg"
     android:orientation="vertical">
 
     <include layout="@layout/layout_top" />
 
-    <FrameLayout
-        android:id="@+id/frame_content"
+    <include layout="@layout/item_theme_change" />
+
+    <View
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="1dp"
+        android:background="?attr/line" />
+
+    <include layout="@layout/item_typeface_change" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?attr/line" />
+
+    <include layout="@layout/item_typeface_size" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?attr/line" />
+
 
 </LinearLayout>

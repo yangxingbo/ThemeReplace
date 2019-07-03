@@ -1,6 +1,9 @@
 package com.chinaiat.themelib.activity;
 
 import android.graphics.Typeface;
+import android.os.Bundle;
+import android.os.Handler;
+import android.support.annotation.Nullable;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -47,7 +50,7 @@ public class TypefaceChangeActivity extends BaseActivity {
         Toolbar toolbar=findViewById(R.id.toolBar);
         tv_show_txt=findViewById(R.id.tv_show_txt);
         recyclerView=findViewById(R.id.recyclerView);
-        toolbar.setTitle("更换字体");
+        toolbar.setTitle(R.string.change_typeface);
         setSupportActionBar(toolbar);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -59,6 +62,23 @@ public class TypefaceChangeActivity extends BaseActivity {
         });
         recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+    }
+
+    private void changeTxtShow(String typefaceName) {
+        selectTypeface = FontUtil.getTypefaceAssetsPath(typefaceName);
+        Typeface typeface = Typeface.createFromAsset(getAssets(), selectTypeface);
+        tv_show_txt.setTypeface(typeface);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_ok, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    protected void onPostCreate(@Nullable Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
         List<String> typefaceList = new ArrayList<String>() {
             {
                 add("幼圆");
@@ -84,18 +104,6 @@ public class TypefaceChangeActivity extends BaseActivity {
             }
         });
         recyclerView.setAdapter(typefaceAdapter);
-    }
-
-    private void changeTxtShow(String typefaceName) {
-        selectTypeface = FontUtil.getTypefaceAssetsPath(typefaceName);
-        Typeface typeface = Typeface.createFromAsset(getAssets(), selectTypeface);
-        tv_show_txt.setTypeface(typeface);
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_ok, menu);
-        return super.onCreateOptionsMenu(menu);
     }
 
     @Override

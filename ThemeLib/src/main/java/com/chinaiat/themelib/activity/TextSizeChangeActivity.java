@@ -14,7 +14,6 @@ import com.chinaiat.themelib.view.FontSliderBar;
 
 import org.greenrobot.eventbus.EventBus;
 
-
 /**
  * @author: Bob
  * @date :2019/6/26 16:37
@@ -42,7 +41,7 @@ public class TextSizeChangeActivity extends BaseActivity {
         tvContent2=findViewById(R.id.tv_chatcontent);
         tvContent3=findViewById(R.id.tv_chatcontent3);
 
-        toolbar.setTitle("更改字体大小");
+        toolbar.setTitle(R.string.change_typeface_size);
         setSupportActionBar(toolbar);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

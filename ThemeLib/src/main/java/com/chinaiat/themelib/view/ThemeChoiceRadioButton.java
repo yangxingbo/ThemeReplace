@@ -1,4 +1,4 @@
-package com.chinaiat.bob.View;
+package com.chinaiat.themelib.view;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -10,7 +10,7 @@ import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.widget.RadioButton;
 
-import com.chinaiat.bob.R;
+import com.chinaiat.themelib.R;
 import com.chinaiat.themelib.utils.SizeUtils;
 
 /**

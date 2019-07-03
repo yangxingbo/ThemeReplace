@@ -14,6 +14,9 @@
     <!--ToolBar pop背景颜色-->
     <attr name="toolBarPop" format="reference|color" />
 
+    <!--分隔线-->
+    <attr name="line" format="color" />
+
     <!--切换开关颜色状态-->
     <attr name="switchTrack" format="color" />
     <attr name="switchThumb" format="color" />
@@ -21,10 +24,6 @@
     <!--控件颜色widget color-->
     <attr name="txtColor" format="color" />
     <attr name="setTxtColor" format="color" />
-
-    <!--控件尺寸widget size-->
-    <attr name="txtSize" format="reference" />
-
 
     <!--控件shape widget shape-->
 

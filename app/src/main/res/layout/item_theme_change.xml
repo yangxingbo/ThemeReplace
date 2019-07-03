@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_change_theme"
     android:layout_width="match_parent"
     android:layout_height="48dp"
-    android:orientation="horizontal">
+    android:background="@drawable/menu_item_selector">
 
     <TextView
-        android:id="@+id/tv_title"
+        android:id="@+id/tv_theme_change"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:layout_marginLeft="15dp"
         android:gravity="center"
-        android:text="更换主题"
-        android:textColor="?attr/setTxtColor"
-        android:textSize="16sp" />
+        android:text="@string/change_theme"
+        android:textColor="?attr/txtColor"
+        android:textSize="17sp" />
 
     <ImageView
         android:id="@+id/img_theme"

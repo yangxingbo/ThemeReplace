@@ -1,25 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!--黑夜主题-->
-    <style name="BaseAPPThemeNight" parent="Theme.AppCompat.NoActionBar">
-        <item name="colorPrimary">@color/colorPrimaryNight</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDarkNight</item>
-
-        <item name="drawableLayoutBg">@color/contextNight</item>
-        <item name="topBarBg">@color/contextNight</item>
-        <item name="contextBg">@color/contextNight</item>
-        <item name="txtColor">@color/txtWhiteColor</item>
-        <item name="menuTxtBg">@color/contextNight</item>
-        <item name="menuWelcomeTxtColor">@color/txtWhiteColor</item>
-        <item name="toolBarPop">@style/ToolBarPopupThemeNight</item>
-        <item name="homeItemBg">@color/menuNight</item>
-        <item name="homeItemTxtDesc">@color/txtLight</item>
-
-        <item name="android:typeface">monospace</item>
-
-        <item name="switchThumb">@color/contextWhite</item>
-        <item name="switchTrack">@color/txtLight</item>
-    </style>
 
     <style name="backgroundAndTypefaceNight" parent="Theme.AppCompat.NoActionBar">
         <item name="drawableLayoutBg">@color/contextNight</item>
@@ -37,6 +17,7 @@
         <item name="switchThumb">@color/contextWhite</item>
         <item name="switchTrack">@color/txtLight</item>
         <item name="setTxtColor">@color/contextWhite</item>
+        <item name="line">@color/txtLight</item>
     </style>
 
     <style name="ToolBarPopupThemeNight" parent="@style/Widget.AppCompat.Light.PopupMenu.Overflow">

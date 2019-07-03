@@ -1,10 +1,10 @@
 <resources>
 
-    <!-- Base application theme. 白天主题-->
-    <style name="AppTheme" parent="BaseAPPThemeLight" />
-
-    <!--夜间主题引用-->
-    <style name="AppThemeNight" parent="BaseAPPThemeNight" />
+    <!--主题弹出框样式-->
+    <style name="ThemeDialogStyle" parent="@android:style/Theme.DeviceDefault.Light.Dialog.NoActionBar.MinWidth">
+        <item name="android:background">@android:color/white</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
 
     <!--SpotsDialog加载提醒框-->
     <style name="Custom" parent="android:Theme.DeviceDefault.Dialog">
@@ -13,6 +13,7 @@
         <item name="DialogSpotColor">@android:color/white</item><!--小点颜色-->
         <item name="DialogSpotCount">4</item><!--加载的点数-->
     </style>
+
     <style name="Theme1" parent="backgroundAndTypefaceLight">
         <item name="colorPrimary">@color/red500</item>
         <item name="colorPrimaryDark">@color/red500</item>

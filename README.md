@@ -1,0 +1,7 @@
+
+
+1.所有Activity都要继承BaseActivity
+
+2.所有Fragment都要继承BaseFragment
+
+BaseActivity和BaseFragment里面都实现了EventBus线程通信

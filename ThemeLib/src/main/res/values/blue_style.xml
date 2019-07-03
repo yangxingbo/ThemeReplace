@@ -1,25 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!--白天主题(蓝白色)-->
-    <style name="BaseAPPThemeLight" parent="Theme.AppCompat.NoActionBar">
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="android:windowContentTransitions">true</item>
-        <item name="drawableLayoutBg">@color/contextWhite</item>
-        <item name="topBarBg">@color/colorPrimary</item>
-        <item name="contextBg">@color/contextWhite</item>
-
-        <item name="android:typeface">monospace</item>
-
-        <item name="txtColor">@color/txtBlackColor</item>
-        <item name="menuTxtBg">@color/contextWhite</item>
-        <item name="menuWelcomeTxtColor">@color/contextWhite</item>
-        <item name="toolBarPop">@style/ToolBarPopupThemeLight</item>
-        <item name="homeItemBg">@color/contextWhite</item>
-        <item name="homeItemTxtDesc">@color/homeItemTxtDesc</item>
-        <item name="switchThumb">@color/colorPrimary</item>
-        <item name="switchTrack">@color/light_blue</item>
-    </style>
 
     <style name="backgroundAndTypefaceLight" parent="Theme.AppCompat.NoActionBar">
         <item name="android:windowContentTransitions">true</item>
@@ -38,6 +18,7 @@
         <item name="switchThumb">?attr/colorPrimary</item>
         <item name="switchTrack">@color/light_blue</item>
         <item name="setTxtColor">@color/contextWhite</item>
+        <item name="line">@color/txtLight</item>
     </style>
 
     <style name="ToolBarPopupThemeLight" parent="@style/Widget.AppCompat.Light.PopupMenu.Overflow">

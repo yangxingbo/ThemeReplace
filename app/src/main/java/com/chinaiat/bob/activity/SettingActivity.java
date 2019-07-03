@@ -1,10 +1,6 @@
 package com.chinaiat.bob.activity;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.os.Bundle;
-import android.preference.Preference;
-import android.preference.PreferenceFragment;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.View;
@@ -15,9 +11,12 @@ import com.chinaiat.themelib.activity.TextSizeChangeActivity;
 import com.chinaiat.themelib.activity.TypefaceChangeActivity;
 import com.chinaiat.themelib.base.BaseActivity;
 import com.chinaiat.themelib.domain.EventMsg;
-import com.chinaiat.themelib.helper.SPHelper;
+import com.chinaiat.themelib.view.ThemeAlertDialog;
 
 import org.greenrobot.eventbus.EventBus;
+
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * @author: Bob
@@ -26,10 +25,16 @@ import org.greenrobot.eventbus.EventBus;
  */
 public class SettingActivity extends BaseActivity {
 
+    private ThemeAlertDialog alertDialog;
 
     @Override
     public int getLayoutId() {
         return R.layout.activity_setting;
+    }
+
+    @Override
+    protected void bindButterKnife() {
+        ButterKnife.bind(this);
     }
 
     @Override
@@ -45,55 +50,25 @@ public class SettingActivity extends BaseActivity {
                 finishActivity();
             }
         });
-        getFragmentManager().beginTransaction().replace(R.id.frame_content, new SettingPreferenceFragment()).commit();
+        alertDialog = new ThemeAlertDialog(this);
+        alertDialog.setListener(new ThemeAlertDialog.ThemeChangeListener() {
+            @Override
+            public void onThemeChange() {
+                ThemeReplaceApplication.IS_CHANGE_THEME = true;
+                restartActivity(getIntent());
+            }
+        });
     }
 
-    public static class SettingPreferenceFragment extends PreferenceFragment implements SharedPreferences.OnSharedPreferenceChangeListener, Preference.OnPreferenceClickListener {
-        private int theme;
-
-        @Override
-        public void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            addPreferencesFromResource(R.xml.pref_settings);
-            findPreference("typeface_change").setOnPreferenceClickListener(this);
-            findPreference("change_text_size").setOnPreferenceClickListener(this);
-            theme = SPHelper.getTheme();
-        }
-
-        @Override
-        public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-            if (key.equals("theme_change")) {
-                int newTheme = sharedPreferences.getInt("theme_change", 19);
-                if (newTheme != theme && getActivity() != null) {
-                    ThemeReplaceApplication.IS_CHANGE_THEME = true;
-                    SettingActivity settingActivity = (SettingActivity) getActivity();
-                    settingActivity.restartActivity(settingActivity.getIntent());
-                }
-            }
-        }
-
-
-        @Override
-        public void onResume() {
-            super.onResume();
-//            getView().setBackgroundColor(getResources().getColor(R.color.menuGray));
-            getPreferenceScreen().getSharedPreferences().registerOnSharedPreferenceChangeListener(this);
-        }
-
-        @Override
-        public void onDestroy() {
-            getPreferenceScreen().getSharedPreferences().unregisterOnSharedPreferenceChangeListener(this);
-            super.onDestroy();
-        }
-
-        @Override
-        public boolean onPreferenceClick(Preference preference) {
-            if (preference.getKey().equals("typeface_change")) {
-                startActivity(new Intent(getActivity(), TypefaceChangeActivity.class));
-            } else if (preference.getKey().equals("change_text_size")) {
-                startActivity(new Intent(getActivity(), TextSizeChangeActivity.class));
-            }
-            return true;
+    @OnClick({R.id.rl_change_theme, R.id.rl_chang_typeface, R.id.rl_chang_typeface_size})
+    public void onItemClick(View view) {
+        int id = view.getId();
+        if (id == R.id.rl_change_theme) {
+            alertDialog.show();
+        } else if (id == R.id.rl_chang_typeface) {
+            startActivity(new Intent(SettingActivity.this, TypefaceChangeActivity.class));
+        } else if (id == R.id.rl_chang_typeface_size) {
+            startActivity(new Intent(SettingActivity.this, TextSizeChangeActivity.class));
         }
     }
 
