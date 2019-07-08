@@ -86,7 +86,10 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onDestroy();
     }
 
-    //重写字体缩放比例 api<25
+    /**
+     * 重写字体缩放比例 api<25
+     * @return
+     */
     @Override
     public Resources getResources() {
         Resources res = super.getResources();
@@ -98,7 +101,9 @@ public abstract class BaseActivity extends AppCompatActivity {
         return res;
     }
 
-    //重写字体缩放比例  api>25
+    /**
+     * 重写字体缩放比例  api>25
+     */
     @Override
     protected void attachBaseContext(Context newBase) {
         if (Build.VERSION.SDK_INT > Build.VERSION_CODES.N) {
